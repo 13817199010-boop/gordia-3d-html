@@ -27,3 +27,30 @@ python scripts/restore_handoff.py
 5. 不允许擅自调用付费模型、fal 等按次计费服务。
 
 官方视频来源：https://www.bilibili.com/video/BV16Bs26FEAM/
+
+## 第一阶段静态模型
+
+在 Blender 4.3 中打开 [可编辑工程](models/gordia-static.blend)。按集合编辑头脸、发束、军帽、礼服、手臂、下装、披风和武器。角色采用放松站姿，`UNVERIFIED_` 前缀标明缺少官方视图的补形。[五视图与头部细节](renders/) · [还原依据](docs/MODEL_SPEC.md) · [修正记录与限制](docs/PROGRESS.md)
+
+[下载单文件 HTML 预览](preview/gordia.html)。模型和渲染代码均内嵌在文件内，可用 GitHub 的 Download raw file 下载。修改模型后用 `npm run model:mobile && npm run build:offline` 重新打包。
+
+**网页预览**使用 Node.js 24 和 npm。拖动模型旋转，使用滚轮或双指缩放，底栏可复位至标准视角或切换武器。
+
+```sh
+npm ci
+npm run dev -- --host 0.0.0.0
+```
+
+生成静态站点用 `npm run build`，输出位于 `dist/`。构建仅打包页面、脚本与实时模型。查看开发环境的具体版本见 [环境报告](docs/ENV_REPORT.md)。
+
+**重新生成模型和验收**需 Blender 4.3.x、已安装的项目 npm 依赖及可运行的 Chromium。Blender 步骤会重新生成工程、完整 GLB 与五张全身视图。
+
+```sh
+blender -b --python-exit-code 1 --python scripts/build_character.py
+npm run model:mobile
+npm run model:check
+# 在独立终端保持 Vite 运行，再执行浏览器检查
+CHROMIUM_PATH=/usr/bin/chromium node scripts/check-preview.mjs
+```
+
+[完整 GLB](models/gordia-static.glb) 保留建模细节，[网页 GLB](models/gordia-mobile.glb) 保留具名部件并减少三角面。网页截图来自桌面 Chromium 和触控平板模拟。

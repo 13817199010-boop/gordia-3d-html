@@ -1,0 +1,27 @@
+Blender reopen
+Verified blend 4.3.2 216 objects 9 collections Camera
+Blender 4.3.2
+Read blend: "/workspace/gordia-3d-html/models/gordia-static.blend"
+
+Blender quit
+
+Khronos Validator and node inventory
+> model:check
+> node scripts/validate-models.mjs
+
+{"file":"gordia-static.glb","bytes":1497832,"nodes":211,"meshes":210,"triangles":85866,"errors":0,"warnings":0}
+{"file":"gordia-mobile.glb","bytes":987640,"nodes":211,"meshes":210,"triangles":42637,"errors":0,"warnings":0}
+
+Playwright on Vite production build and offline content
+desktop 1280 800 WebGL loaded; camera and weapon passed; desktop passed
+tablet 820 1180 WebGL loaded; camera and weapon passed; touch rotation and pinch passed
+Missing GLB produces a visible load error
+Standalone HTML content rendered offline; zero HTTP requests and weapon toggle passed
+
+Blender CPU render outputs
+renders/front.png 680x880 922777 bytes
+renders/three-quarter.png 680x880 921451 bytes
+renders/left.png 680x880 855914 bytes
+renders/right.png 680x880 874380 bytes
+renders/back.png 680x880 870473 bytes
+renders/portrait.png 580x640 600232 bytes

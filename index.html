@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,"><title>格尔黛 · 静态模型预览</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#ede6dc;background:radial-gradient(ellipse at 51% 45%,#45404a 0%,#25232e 43%,#111018 90%);font:15px "DM Sans",system-ui,sans-serif}
+main{height:100dvh;min-height:320px;position:relative;overflow:hidden}canvas{width:100%;height:100%;display:block;touch-action:none}
+header{position:absolute;top:clamp(18px,5vw,60px);left:clamp(18px,5vw,64px);pointer-events:none}h1{font:500 clamp(28px,5vw,70px)/1.1 Georgia,serif;margin:0;color:#ece0cf;letter-spacing:.07em}header p{color:#c7b898;letter-spacing:.12em;margin:8px 0}
+nav{position:absolute;bottom:max(16px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;gap:5px;white-space:nowrap;background:#17151dea;border:1px solid #675d55;border-radius:12px;padding:6px}
+button{color:#ece2d4;background:transparent;font:inherit;border:0;border-radius:7px;padding:10px 14px;cursor:pointer}button:hover,button:focus-visible{background:#473d43}button[aria-pressed=true]{background:#683640}
+output{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#27242e;padding:12px 18px;border-radius:8px}output:empty{display:none}
+@media(max-width:560px){header{top:14px;left:16px}header p{font-size:12px;margin:3px 0}nav{gap:1px}button{font-size:14px;padding:10px}}
+</style>
+<main><canvas aria-label="格尔黛三维模型，拖动旋转，滚轮或双指缩放"></canvas>
+<header><h1>Gordia</h1><p>格尔黛 · 静态模型</p></header>
+<nav aria-label="模型控制"><button data-angle="0">正面</button><button data-angle="45">45°</button><button data-angle="90">侧面</button><button data-angle="180">背面</button><button id="weapon" aria-pressed="true">武器</button></nav>
+<output role="status">正在载入模型…</output></main><script type="module" src="./viewer.js"></script><script type="text/plain" id="three-license">
+The MIT License
+
+Copyright © 2010-2026 three.js authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</script></html>

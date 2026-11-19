@@ -1,0 +1,21 @@
+{
+  "name": "gordia-3d-html",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "model:mobile": "gltf-transform simplify models/gordia-static.glb models/gordia-mobile.glb --ratio 0.35 --error 0.007",
+    "model:check": "node scripts/validate-models.mjs",
+    "build:offline": "node scripts/build-standalone.mjs"
+  },
+  "dependencies": {
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/cli": "4.5.1",
+    "gltf-validator": "2.0.0-dev.3.10",
+    "playwright": "1.65.1",
+    "vite": "8.3.8"
+  }
+}

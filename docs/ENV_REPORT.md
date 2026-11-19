@@ -12,3 +12,5 @@
 |Git / GitHub|Git 2.52.0，已认证并从 origin 拉取|
 |Context7|查询 /mrdoob/three.js 的 GLTFLoader 加载及异常回调|
 |计算设备|无 nvidia-smi、/dev/nvidia* 或 /dev/dri。未发现可运行 Hunyuan3D / TRELLIS.2 的本机免费 GPU。采用 bpy + CPU，无生成 API 调用。|
+
+仓库中另已固定上述 Node 工具的版本，使用 npm ci 可从 package-lock.json 还原。单文件 HTML 的离线验收通过向浏览器载入文件内容完成；本机受管 Chromium 禁止直接导航至 file:// URL。
