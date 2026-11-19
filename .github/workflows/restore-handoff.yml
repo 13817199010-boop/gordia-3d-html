@@ -1,0 +1,26 @@
+name: Restore uploaded Gordia handoff
+on:
+  push:
+    branches: [main]
+    paths:
+      - "handoff_parts/**"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Restore and verify all 15 files
+        run: python scripts/restore_handoff.py
+      - name: Commit extracted references and documents
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add references docs
+          if ! git diff --cached --quiet; then
+            git commit -m "assets: restore original Gordia reference materials"
+            git push
+          fi

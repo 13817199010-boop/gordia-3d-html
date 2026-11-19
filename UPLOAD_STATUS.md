@@ -1,29 +1,11 @@
-# 上传状态（2026-11-19）
+# 格尔黛项目上传状态
 
-仓库公开状态已由用户确认。角色图片和 PV 视频仍可能受第三方版权保护，公开仓库不等于获得素材再分发授权。
+已由用户确认将 GitHub 仓库保持公开。
 
-## 已上传
-- `CODEX_TASK_PROMPT.md` — 云端 Codex 开发任务提示词。
-- `README.md` — 交接说明（已调整为用户选择的公开仓库）。
+- `README.md`、`CODEX_TASK_PROMPT.md`、`docs/REFERENCE_EVIDENCE.md` 和 `docs/VIDEO_METADATA.txt`：已提交。
+- 完整 15 文件交接包：已无损分割为 `handoff_parts/part_00.bin` ... `part_26.bin` 并提交。
+- `scripts/restore_handoff.py`：验证 ZIP SHA256、恢复全部原素材。
+- `.github/workflows/restore-handoff.yml`：在分块首次提交时尝试自动还原并提交素材。
+- 如果 GitHub Actions 没有运行或被权限限制，云端 Codex 可以先执行 `python scripts/restore_handoff.py`。
 
-## 尚未上传（目前本地交接压缩包中存在）
-- `docs/REFERENCE_EVIDENCE.md`
-- `docs/VIDEO_METADATA.txt`
-- `references/frame_index.jpg`
-- `references/gordia_official_character_cutout.png`
-- `references/gordia_official_poster.jpg`
-- `references/gordia_official_pv_clip.mp4`
-- `references/video_frames/clip_05.40s.png`
-- `references/video_frames/clip_07.10s.png`
-- `references/video_frames/clip_07.50s.png`
-- `references/video_frames/clip_07.80s.png`
-- `references/video_frames/clip_08.45s.png`
-- `references/video_frames/clip_08.65s.png`
-- `references/video_frames/clip_08.85s.png`
-
-原因：当前 GitHub 连接只能写入 UTF-8 文本或者由连接可读取的对象；上传会话中的二进制 ZIP 无法直接通过该连接批量解压推送。不要将缺失文件伪装为已上传。
-
-## 需要执行的后续上传
-将交接 ZIP 解压，在 GitHub 仓库的 `Add file → Upload files` 中拖入解压后的 `references`、`docs` 目录（保留相对路径），提交到 `main`。注意 GitHub 网页不接受仅上传 ZIP 后自动展开：必须先解压。
-
-进入云端 Codex 前，核实上述 13 个参考素材及文档文件均出现在仓库中。
+完整原 ZIP 的 SHA256：`07ae448d1616d5123db6554d1f779e89d798d34f354ac1c5f29623660b9af071`。只有执行并验证后才能宣称单个原始文件已解压至 `references/`。

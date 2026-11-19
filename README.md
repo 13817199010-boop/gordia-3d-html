@@ -1,21 +1,29 @@
-# 格尔黛 | Codex 3D HTML 建模交接包
+# 格尔黛 | Codex 3D HTML 建模交接工程
 
-本包包含用户提供的角色参考立绘、海报、原始PV截取视频，以及从上传视频独立提取的关键帧。
+本仓库用于《鸣潮》格尔黛角色复原研究和可交互 3D HTML 开发。公开仓库由用户明确选择。参考图片和官方 PV 片段可能受第三方版权保护，公开并不表示获得其再分发授权。
+
+## 文件结构与恢复
+
+完整交接包包括角色原始立绘、海报、13.406 秒 PV 片段、7 张视频关键帧、参考证据文档及 Codex 提示词，共 15 个文件。受单次接口传输限制，原始 ZIP 以 27 个无损分块存于 `handoff_parts/`。
+
+GitHub Actions 会尝试自动恢复并提交 `references/` 与 `docs/` 中的素材。如素材尚未显示，使用：
+
+```bash
+python scripts/restore_handoff.py
+```
+
+恢复脚本会检查全部分块、验证原 ZIP 的 SHA256，并只解压缺失文件。原始 ZIP SHA256：
+
+```
+07ae448d1616d5123db6554d1f779e89d798d34f354ac1c5f29623660b9af071
+```
 
 ## 提交给云端 Codex
-1. 仓库 `gordia-3d-html` 已由用户明确选择为公开；上传前请确认参考素材的版权和公开传播限制。
-2. 在 Codex 中打开该仓库，复制 `CODEX_TASK_PROMPT.md` 的任务文本。
-3. 让 Codex 首先建立环境能力报告、参考资料证据表，并测试 Blender 是否可用。
-4. 先完成可以从四个角度查看的 GLB 静态模型，再继续骨骼和网页。
 
-## 资料说明
-- `references/gordia_official_character_cutout.png`：正面人物立绘（仍未展示脚掌和背面）。
-- `references/gordia_official_poster.jpg`：原始海报辅助比对。
-- `references/gordia_official_pv_clip.mp4`：用户上传的13.406s视频片段，1440x2038，画面含上下黑边。
-- `references/video_frames/*.png`：按上传片段相对时间提取的关键帧，并已经裁掉黑边（参考裁剪，不作为对色依据）。
-- `references/frame_index.jpg`：视频关键帧索引。
-- `docs/REFERENCE_EVIDENCE.md`：可见、部分可见、未知的部件事实表。
+1. 在 Codex 中打开本仓库 `13817199010-boop/gordia-3d-html`。
+2. 先检查参考素材是否已恢复，否则运行上方 Python 命令。
+3. 读取 `CODEX_TASK_PROMPT.md` 和 `docs/REFERENCE_EVIDENCE.md`。
+4. 先检测 Blender、FFmpeg、Node 和 GPU 环境，再制作可编辑静态模型；通过 0°/45°/90°/180° 渲染验收后继续骨骼与 HTML。
+5. 不允许擅自调用付费模型、fal 等按次计费服务。
 
-**注意**：帧时间相对的是上传的13.406s片段，非 B 站原视频绝对时间。原官方页面：https://www.bilibili.com/video/BV16Bs26FEAM/ 。
-
-该素材可能受原游戏及视频著作权限制；用于个人复原研究；仓库公开不代表官方素材自动获得再分发授权。
+官方视频来源：https://www.bilibili.com/video/BV16Bs26FEAM/
