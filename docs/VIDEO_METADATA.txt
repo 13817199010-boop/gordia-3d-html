@@ -1,0 +1,6 @@
+Input: 40987.mp4
+Duration: 13.405922 s
+Resolution: 1440x2038 (portrait video with horizontal picture content and black bands)
+Video: H.264; audio: AAC
+Extracted reference frames: 5.40, 7.10, 7.50, 7.80, 8.45, 8.65, 8.85 seconds relative to uploaded segment.
+Official BV link: https://www.bilibili.com/video/BV16Bs26FEAM/
